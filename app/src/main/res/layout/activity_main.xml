@@ -177,7 +177,7 @@
                 android:textSize="7pt"
                 tools:layout_editor_absoluteX="34dp"
                 tools:layout_editor_absoluteY="422dp"
-                android:onClick=""/>
+                android:onClick="onMyClick"/>
 
             <Button
                 android:id="@+id/button2"
@@ -187,7 +187,8 @@
                 android:text="정보수정"
                 android:textSize="7pt"
                 tools:layout_editor_absoluteX="138dp"
-                tools:layout_editor_absoluteY="411dp" />
+                tools:layout_editor_absoluteY="411dp"
+                android:onClick="onMyClick"/>
 
             <Button
                 android:id="@+id/button3"
@@ -197,7 +198,8 @@
                 android:text="초기화"
                 android:textSize="7pt"
                 tools:layout_editor_absoluteX="239dp"
-                tools:layout_editor_absoluteY="419dp" />
+                tools:layout_editor_absoluteY="419dp"
+                android:onClick="onMyClick"/>
         </TableRow>
 
     </TableLayout>
