@@ -53,7 +53,8 @@
         </TableRow>
 
         <TableRow
-            android:padding="10dp">
+            android:padding="10dp"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/textView15"
@@ -76,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="8pt"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:text="기본" />
 
             <RadioButton
@@ -84,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="8pt"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:text="VIP" />
         </TableRow>
 
