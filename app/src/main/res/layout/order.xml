@@ -1,19 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TableLayout
-        android:layout_width="500dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
         <TableRow
             android:padding="10dp">
-
             <TextView
                 android:id="@+id/textView13"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="8pt"
+                android:text="테이블명" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="8pt"
+                android:layout_span="4"/>
+        </TableRow>
+
+        <TableRow
+            android:padding="10dp">
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="8pt"
+                android:text="입장시간" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="8pt"
+                android:layout_span="4"/>
+        </TableRow>
+
+        <TableRow
+            android:padding="10dp">
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:textSize="8pt"
@@ -23,7 +60,8 @@
                 android:id="@+id/editText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
                 android:hint="숫자를 입력하세요"
                 android:textSize="8pt"
                 android:inputType="number"
@@ -32,9 +70,8 @@
 
         <TableRow
             android:padding="10dp">
-
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -45,7 +82,8 @@
                 android:id="@+id/editText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
                 android:hint="숫자를 입력하세요"
                 android:textSize="8pt"
                 android:inputType="number"
@@ -53,40 +91,46 @@
         </TableRow>
 
         <TableRow
-            android:padding="10dp"
-            android:layout_weight="1">
+            android:layout_marginTop="5dp"
+            android:padding="10dp">
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:textSize="8pt"
-                android:text="멤버쉽카드" />
+                android:text="맴버쉽카드" />
 
-            <RadioButton
-                android:id="@+id/radioButton"
-                android:layout_width="wrap_content"
+            <RadioGroup
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:text="없음"
-                android:textSize="8pt" />
+                android:layout_width="wrap_content"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="8pt"
-                android:layout_marginLeft="10dp"
-                android:text="기본" />
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="없음"
+                    android:textSize="8pt" />
 
-            <RadioButton
-                android:id="@+id/radioButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="8pt"
-                android:layout_marginLeft="10dp"
-                android:text="VIP" />
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="8pt"
+                    android:layout_marginLeft="10dp"
+                    android:text="기본" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="8pt"
+                    android:layout_marginLeft="10dp"
+                    android:text="VIP" />
+            </RadioGroup>
         </TableRow>
 
 
