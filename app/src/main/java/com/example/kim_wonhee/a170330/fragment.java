@@ -24,6 +24,11 @@ import java.util.Date;
 
 public class fragment extends Fragment {
 
+    long now = System.currentTimeMillis();
+    Date date = new Date(now);
+    SimpleDateFormat sdfnow = new SimpleDateFormat("yyyy/MM/DD hh:mm");
+    String formatdate = sdfnow.format(date);
+
     Button table1, table2, table3, table4;
     TextView Info_table, Info_time, Info_pasta, Info_pizza, Info_membership, Info_price;
     Button order, reorder, reset;
@@ -34,7 +39,9 @@ public class fragment extends Fragment {
 
     table t1, t2, t3, t4;
 
-    int tablenum;
+    int table;
+    int membership;
+    int price;
     int num_pasta, num_pizza;
 
     @Override
@@ -64,31 +71,52 @@ public class fragment extends Fragment {
         reorder = (Button) v.findViewById(R.id.button2);
         reset = (Button) v.findViewById(R.id.button3);
 
+        t1 = new table(0, "", 0, 0, 0, 0);
+        t2 = new table(0, "", 0, 0, 0, 0);
+        t3 = new table(0, "", 0, 0, 0, 0);
+        t4 = new table(0, "", 0, 0, 0, 0);
+
         table1.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                tablenum = 1;
+                table = 1;
+                if (t1.price == 0) {
+                    Toast.makeText(getContext(), "비어있는 테이블입니다", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         table2.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                tablenum = 2;
+                table = 2;
+                if (t2.price == 0) {
+                    Toast.makeText(getContext(), "비어있는 테이블입니다", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         table3.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                tablenum = 3;
+                table = 3;
+                if (t1.price == 0) {
+                    Toast.makeText(getContext(), "비어있는 테이블입니다", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         table4.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                tablenum = 4;
+                table = 4;
+                if (t1.price == 0) {
+                    Toast.makeText(getContext(), "비어있는 테이블입니다", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -96,7 +124,7 @@ public class fragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View dlgview) {
-                if (tablenum == 0) {
+                if (table == 0) {
                     Toast.makeText(getContext(), "테이블을 선택하세요", Toast.LENGTH_SHORT).show();
                 } else {
                     dlgview = View.inflate(getContext(), R.layout.order, null);
@@ -119,17 +147,33 @@ public class fragment extends Fragment {
                     dlg.setView(dlgview);
                     dlg.show();
 
-                    if (tablenum == 1) {
-                        if (t1.time == null) {
-                            Toast.makeText(getContext(), "비어있는 테이블입니다", Toast.LENGTH_SHORT).show();
+                    if (table == 1) {
+                        if (t1.price != 0) {
+                            order.setEnabled(false);
                         } else {
+                            dlg_table.setText("사과 Table");
+                            dlg_time.setText(formatdate);
+
                             num_pasta = Integer.parseInt(dlg_pasta.getText().toString());
                             num_pizza = Integer.parseInt(dlg_pizza.getText().toString());
+                            price = (num_pasta * 10000) + (num_pizza * 12000);
 
+                            if (membership == 1) {
+                                t1.price = price;
+                            } else if (membership == 2) {
+                                t1.price = (int) (price * 0.9);
+                            } else if (membership == 3) {
+                                t1.price = (int) (price * 0.7);
+                            }
 
-
+                            t1.tablenum = table;
+                            t1.time = formatdate;
+                            t1.pasta = num_pasta;
+                            t1.pizza = num_pizza;
+                            t1.membershipnum = membership;
                         }
                     }
+
                 }
 
             }
@@ -177,8 +221,28 @@ public class fragment extends Fragment {
         dlg_membership2 = (RadioButton) v.findViewById(R.id.radioButton2);
         dlg_membership3 = (RadioButton) v.findViewById(R.id.radioButton3);
 
-    }
+        dlg_membership1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                membership = 1;
+            }
+        });
 
+        dlg_membership2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                membership = 2;
+            }
+        });
+
+        dlg_membership3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                membership = 3;
+            }
+        });
+
+    }
 
 
 }

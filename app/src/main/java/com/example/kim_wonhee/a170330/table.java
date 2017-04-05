@@ -13,7 +13,7 @@ public class table {
     int membershipnum = 0;
     int price = 0;
 
-    void table(int tablenum, String time, int pasta, int pizza, int membershipnum, int price) {
+    public table(int tablenum, String time, int pasta, int pizza, int membershipnum, int price) {
         this.tablenum = tablenum;
         this.time = time;
         this.pasta = pasta;
